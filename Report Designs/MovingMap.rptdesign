@@ -1,0 +1,3569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.0.v20150206-1039 Build &lt;4.2.3.v20150206-1039></property>
+    <property name="units">in</property>
+    <property name="theme">ThemesReportItems31.Modern</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">/ThemesReportItems31.rptlibrary</property>
+            <property name="namespace">ThemesReportItems31</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.datatools.connectivity.oda.flatfile" name="Data Source" id="4">
+            <property name="HOME">Data/</property>
+            <property name="DELIMTYPE">COMMA</property>
+            <property name="CHARSET">UTF-8</property>
+            <property name="INCLCOLUMNNAME">YES</property>
+            <property name="INCLTYPELINE">NO</property>
+            <property name="TRAILNULLCOLS">NO</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries0" id="5">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2014,3,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries11" id="6">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2015,2,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries2" id="7">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2014,5,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries1" id="8">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2014,4,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries3" id="9">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2014,6,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries4" id="10">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2014,7,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries5" id="11">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2014,8,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries6" id="12">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2014,9,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries7" id="13">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2014,10,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries8" id="14">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2014,11,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries9" id="15">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2015,0,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Countries10" id="16">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <expression name="expression" type="javascript">new Date(2015,1,1)</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <expression name="expression" type="javascript">Math.floor((Math.random() * 5) + 1);</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Country Code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country Code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RandomNumber</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Country Code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">RandomNumber</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Country Code</property>
+                    <property name="nativeName">Country Code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Country Code", "Country" from "Countries.csv" : {"Country Code","Country Code",STRING;"Country","Country",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country Code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country Code</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">auto</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <extended-item extensionName="Map" id="18">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"April-2014"</expression>
+            <property name="dataSet">Countries0</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Map" id="19">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"May-2014"</expression>
+            <property name="dataSet">Countries1</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Map" id="20">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"June-2014"</expression>
+            <property name="dataSet">Countries2</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Map" id="21">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"July-2014"</expression>
+            <property name="dataSet">Countries3</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Map" id="22">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"August-2014"</expression>
+            <property name="dataSet">Countries4</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Map" id="23">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"September-2014"</expression>
+            <property name="dataSet">Countries5</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Map" id="24">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"October-2014"</expression>
+            <property name="dataSet">Countries6</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Map" id="25">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"November-2014"</expression>
+            <property name="dataSet">Countries7</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Map" id="26">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"December-2014"</expression>
+            <property name="dataSet">Countries8</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Map" id="27">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"January-2015"</expression>
+            <property name="dataSet">Countries9</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Map" id="28">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"February-2015"</expression>
+            <property name="dataSet">Countries10</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Map" id="17">
+            <xml-property name="xmlRepresentation"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<Maps:MapModel xmlns:Maps="http://www.birt.actuate.com/Maps">
+  <Maps:Type>World with Countries</Maps:Type>
+  <Maps:AreaDefinition>
+    <Maps:Border/>
+  </Maps:AreaDefinition>
+  <Maps:MapDefinition>
+    <Maps:ShowLabels>false</Maps:ShowLabels>
+    <Maps:Border>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Maps:Border>
+    <Maps:Background>
+      <Transparency>255</Transparency>
+      <Red>221</Red>
+      <Green>221</Green>
+      <Blue>221</Blue>
+    </Maps:Background>
+    <Maps:UseHoverColor>false</Maps:UseHoverColor>
+    <Maps:HoverColor>
+      <Transparency>0</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:HoverColor>
+    <Maps:EntityQuery>
+      <Definition>row[&quot;Country Code&quot;]</Definition>
+      <Grouping>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:EntityQuery>
+    <Maps:ValueQuery>
+      <Definition>row[&quot;RandomNumber&quot;]</Definition>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </Maps:ValueQuery>
+    <Maps:Tooltip>
+      <Text>row[&quot;Country&quot;]</Text>
+      <Delay>200</Delay>
+    </Maps:Tooltip>
+    <Maps:Hyperlink>
+      <BaseUrl></BaseUrl>
+      <Target></Target>
+      <BaseParameterName></BaseParameterName>
+      <ValueParameterName></ValueParameterName>
+    </Maps:Hyperlink>
+    <Maps:InvokeScript>
+      <Script></Script>
+    </Maps:InvokeScript>
+  </Maps:MapDefinition>
+  <Maps:LegendDefinition>
+    <Maps:Show>false</Maps:Show>
+  </Maps:LegendDefinition>
+  <Maps:FormatDefinition>
+    <Maps:DecimalNumber>2</Maps:DecimalNumber>
+  </Maps:FormatDefinition>
+  <Maps:BaseFontDefinition>
+    <Value></Value>
+    <Font>
+      <Name>Tahoma</Name>
+      <Alignment/>
+    </Font>
+    <Color>
+      <Transparency>255</Transparency>
+      <Red>85</Red>
+      <Green>85</Green>
+      <Blue>85</Blue>
+    </Color>
+  </Maps:BaseFontDefinition>
+  <Maps:ColorRange>
+    <Maps:Elements>
+      <Maps:MaxValue>1.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>217</Red>
+        <Green>232</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>1.0</Maps:MinValue>
+      <Maps:MaxValue>2.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>136</Red>
+        <Green>184</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>2.0</Maps:MinValue>
+      <Maps:MaxValue>3.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>62</Red>
+        <Green>139</Green>
+        <Blue>255</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>3.0</Maps:MinValue>
+      <Maps:MaxValue>4.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>97</Green>
+        <Blue>242</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Elements>
+      <Maps:MinValue>4.0</Maps:MinValue>
+      <Maps:MaxValue>5.0</Maps:MaxValue>
+      <Maps:DisplayValue></Maps:DisplayValue>
+      <Maps:Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>56</Green>
+        <Blue>140</Blue>
+      </Maps:Color>
+    </Maps:Elements>
+    <Maps:Color>
+      <Transparency>255</Transparency>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </Maps:Color>
+  </Maps:ColorRange>
+</Maps:MapModel>
+]]></xml-property>
+            <property name="inheritColumns">false</property>
+            <expression name="bookmark" type="javascript">"March-2015"</expression>
+            <property name="dataSet">Countries11</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Country Code</property>
+                    <text-property name="displayName">Country Code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country Code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Country</property>
+                    <text-property name="displayName">Country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">RandomNumber</property>
+                    <text-property name="displayName">RandomNumber</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RandomNumber"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </extended-item>
+    </body>
+</report>

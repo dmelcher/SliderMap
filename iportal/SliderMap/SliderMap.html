@@ -1,0 +1,273 @@
+<html><head>
+	<style type="text/css">
+		div.monthButton
+		{
+			width:50px; height:8px; 
+			border:1px solid silver;
+			position:relative; left:25px; top:13px;
+			cursor:pointer;
+			float:left;
+		}
+		div.monthDisplay
+		{
+			width:52px; height:8px; 
+			position:relative; left:29px; top:18px;
+			font-family: 'Trebuchet MS',Arial,Helvetica,sans-serif;
+			font-size: 16px;
+			float:left;
+		}
+		div.monthYearDisplay
+		{
+			width:52px; height:8px; 
+			position:relative; left:29px; top:0px;
+			font-family: 'Trebuchet MS',Arial,Helvetica,sans-serif;
+			font-size: 16px;
+			float:left;
+		}
+		div.playButton
+		{
+			width:50px; height:8px; 
+			border:1px solid silver;
+			position:relative; left:25px; top:70px;
+			cursor:pointer;
+		}
+		div.playDisplay
+		{
+			width:52px; height:8px; 
+			position:relative; left:33px; top:72px;
+		}
+		div.stopButton
+		{
+			width:50px; height:8px; 
+			border:1px solid silver;
+			position:relative; left:50px; top:60px;
+			cursor:pointer;
+			float:left;
+		}
+		div.stopDisplay
+		{
+			width:52px; height:8px; 
+			position:relative; left:58px; top:72px;
+			float:left;
+		}
+		div.speedButton
+		{
+			width:50px; height:8px; 
+			border:1px solid silver;
+			position:relative; left:50px; top:60px;
+			cursor:pointer;
+			float:left;
+		}
+		div.speedDisplay
+		{
+			width:52px; height:8px; 
+			position:relative; left:58px; top:71px;
+			float:left;
+		}
+
+	</style>
+
+	<script type="text/javascript" language="JavaScript" src="http://localhost:8700/iportal/jsapi"></script>
+	<script type="text/javascript" language="JavaScript">
+
+		var currentMonth = '4';
+		var begMonth = 4;
+		var endMonth = 15;
+		var isPlay = false;
+		var speedNum = 4;
+		var t;
+		var aMonths = "4,5,6,7,8,9,10,11,12,13,14,15"; // Comma separated list of months
+		var aBookmarks = ["April-2014","May-2014","June-2014","July-2014","August-2014","September-2014","October-2014","November-2014","December-2014","January-2015","February-2015","March-2015"];
+		var viewer1;
+		
+		function init() {
+			actuate.load("viewer");
+            var requestOpts = new actuate.RequestOptions();
+            actuate.initialize("http://localhost:8700/iportal", requestOpts, "Administrator", "", setUpMap);
+
+			document.getElementById('y'+currentMonth).style.backgroundColor="#88B8FF";
+			document.getElementById('ySpeed'+speedNum).style.backgroundColor="#88B8FF";
+			hideStop();
+			hideSpeed();
+		}
+		
+		function setUpMap() {
+            viewer1 = new actuate.Viewer("mapDiv");
+            //viewer1.setReportName("/Applications/Nestle/Report Designs/MovingMap.rptdocument");
+            viewer1.setReportName("/Public/MovingMap.rptdocument");
+
+            var uiOpts = new actuate.viewer.UIOptions();
+            uiOpts.enableToolBar(false);
+            viewer1.setUIOptions(uiOpts);
+			displayMap(4);
+		}
+		
+		function displayMap(month) {
+			var bookmark = aBookmarks[month-4];
+			viewer1.setReportletBookmark(bookmark);
+            viewer1.submit();
+		}
+		
+		function handlePublishedMonth(newMonth) {
+			levelSelected(newMonth);
+			showMonth(newMonth);
+			currentMonth = newMonth;
+		}
+		
+		function publishMonth(newMonth) {
+			if (newMonth != currentMonth) {
+				handlePublishedMonth(newMonth);
+			}
+			if (isPlay == true) {
+				stopPlay();
+			}
+		}
+
+		function levelSelected(newMonth) {
+			if (parseInt(currentMonth) <= endMonth ) {
+				document.getElementById('d'+currentMonth).style.fontWeight='normal';
+				document.getElementById('d'+currentMonth).style.fontSize='inherit';
+				document.getElementById('y'+currentMonth).style.backgroundColor="";
+				document.getElementById('d'+newMonth).style.fontWeight="bold";
+			}
+			document.getElementById('y'+newMonth).style.backgroundColor="#88B8FF";
+			displayMap(newMonth);
+		}
+		
+		function hideMonth(newMonth) {
+			if (newMonth != 'Play' && newMonth != currentMonth) {
+				document.getElementById('d'+newMonth).style.fontWeight='normal';
+			}
+		}
+
+		function showMonth(newMonth) {
+			document.getElementById('d'+newMonth).style.fontWeight='bold';
+		}
+		
+		function hideStop() {
+			document.getElementById('dStop').style.visibility='hidden';
+			document.getElementById('yStop').style.visibility='hidden';
+		}
+		
+		function showStop() {
+			document.getElementById('dStop').style.visibility='visible';
+			document.getElementById('yStop').style.visibility='visible';
+		}
+		
+		function showSpeed() {
+			document.getElementById('dSpeed').style.visibility='visible';
+			document.getElementById('ySpeed2').style.visibility='visible';
+			document.getElementById('ySpeed4').style.visibility='visible';
+			document.getElementById('ySpeed8').style.visibility='visible';
+		}
+
+		function hideSpeed() {
+			document.getElementById('dSpeed').style.visibility='hidden';
+			document.getElementById('ySpeed2').style.visibility='hidden';
+			document.getElementById('ySpeed4').style.visibility='hidden';
+			document.getElementById('ySpeed8').style.visibility='hidden';
+		}
+		
+		function getNextMonthOld() {
+			var nextMonth = 0;
+			for (i=aMonths.length-1; i>=0; i--) {
+				if (currentMonth == aMonths[i]) {
+					if (i == 0) nextYear = aMonths[aMonths.length-1];
+					else nextMonth = aMonths[i-1];
+				}
+			}
+			return nextMonth;
+		}
+		
+		function getNextMonth() {
+			var iCurrentMonth = parseInt(currentMonth);
+			iCurrentMonth++;
+			if (iCurrentMonth > endMonth) {
+				iCurrentMonth = aMonths[0];
+			}
+			return iCurrentMonth;
+		}
+		
+		function loopMonths() {
+			var nextMonth = getNextMonth();
+			handlePublishedMonth(nextMonth);
+			if (parseInt(currentMonth) <= endMonth) {
+				t = setTimeout("loopMonths();", speedNum * 1000);
+			}
+			else {
+				stopPlay();
+			}
+		}
+		
+		function playAll() {
+			if (isPlay == false) {
+				isPlay = true;
+				levelSelected('Play');
+				showStop();
+				showSpeed();
+				loopMonths();
+			}
+		}
+		
+		function stopPlay() {
+			clearTimeout(t);
+			isPlay = false;
+			document.getElementById('yPlay').style.backgroundColor="";
+			hideStop();
+			hideSpeed();
+		}
+		
+		function setSpeed(num) {
+			stopPlay();
+			document.getElementById('ySpeed' + speedNum).style.backgroundColor="";
+			document.getElementById('ySpeed' + num).style.backgroundColor="#88B8FF";
+			speedNum = num;
+			playAll();
+		}
+				
+	</script>
+</head><body>
+	<div id="d4" class="monthYearDisplay">2014 Apr</div>
+	<div id="d5" class="monthDisplay">May</div>
+	<div id="d6" class="monthDisplay">Jun</div>
+	<div id="d7" class="monthDisplay">Jul</div>
+	<div id="d8" class="monthDisplay">Aug</div>
+	<div id="d9" class="monthDisplay">Sep</div>
+	<div id="d10" class="monthDisplay">Oct</div>
+	<div id="d11" class="monthDisplay">Nov</div>
+	<div id="d12" class="monthDisplay">Dec</div>
+	<div id="d13" class="monthYearDisplay">2015 Jan</div>
+	<div id="d14" class="monthDisplay">Feb</div>
+	<div id="d15" class="monthDisplay">Mar</div>
+	<div id="dPlay" class="playDisplay" style="left:45px;"><img src="Play.png"  height="12" width="12"/></div>
+	<div id="dStop" class="stopDisplay" style="left:95px;"><img src="Stop.png" height="12" width="12"/></div>
+	<div id="dSpeed" class="speedDisplay" style="left:125px;"><img src="Speed.png" height="12" width="90"/></div>
+	<br/>	
+	<div id="y4" class="monthButton" onclick="publishMonth('4');" onmouseover="showMonth('4');" onmouseout="hideMonth('4');"></div>
+	<div id="y5" class="monthButton" onclick="publishMonth('5');" onmouseover="showMonth('5');" onmouseout="hideMonth('5');"></div>
+	<div id="y6" class="monthButton" onclick="publishMonth('6');" onmouseover="showMonth('6');" onmouseout="hideMonth('6');"></div>
+	<div id="y7" class="monthButton" onclick="publishMonth('7');" onmouseover="showMonth('7');" onmouseout="hideMonth('7');"></div>
+	<div id="y8" class="monthButton" onclick="publishMonth('8');" onmouseover="showMonth('8');" onmouseout="hideMonth('8');"></div>
+	<div id="y9" class="monthButton" onclick="publishMonth('9');" onmouseover="showMonth('9');" onmouseout="hideMonth('9');"></div>
+	<div id="y10" class="monthButton" onclick="publishMonth('10');" onmouseover="showMonth('10');" onmouseout="hideMonth('10');"></div>
+	<div id="y11" class="monthButton" onclick="publishMonth('11');" onmouseover="showMonth('11');" onmouseout="hideMonth('11');"></div>
+	<div id="y12" class="monthButton" onclick="publishMonth('12');" onmouseover="showMonth('12');" onmouseout="hideMonth('12');"></div>
+	<div id="y13" class="monthButton" onclick="publishMonth('13');" onmouseover="showMonth('13');" onmouseout="hideMonth('13');"></div>
+	<div id="y14" class="monthButton" onclick="publishMonth('14');" onmouseover="showMonth('14');" onmouseout="hideMonth('14');"></div>
+	<div id="y15" class="monthButton" onclick="publishMonth('15');" onmouseover="showMonth('15');" onmouseout="hideMonth('15');"></div>
+	<div id="yPlay" class="playButton" onclick="playAll();"></div>
+	<div id="yStop" class="stopButton" onclick="stopPlay();" style="left:75px;"></div>
+	<div id="ySpeed8" class="speedButton" onclick="setSpeed(8);" style="left:100px;"></div>
+	<div id="ySpeed4" class="speedButton" onclick="setSpeed(4);" style="left:100px;"></div>
+	<div id="ySpeed2" class="speedButton" onclick="setSpeed(2);" style="left:100px;"></div>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<div id="mapDiv"></div>
+
+	<script>
+	init();
+	</script>
+	
+</body></html>
